@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task3</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			background: linear-gradient(135deg, rgba(110, 108, 108, 1) 0%, rgba(64, 64, 65, 1) 50%);
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<script>
+		'use strict';
+
+		// Объявить две переменные a и b и задать им целочисленные произвольные начальные значения.
+		// Затем написать скрипт, который работает по следующему принципу:
+		// - если a и b положительные, вывести их разность (ноль можно считать положительным числом);
+		// - если а и b отрицательные, вывести их произведение;
+		// - * (этот пункт по сложнее, делайте по желанию) если а и b разных знаков, вывести их сумму;
+
+
+
+		//функция генерирует случайное целое число от -100 до 100
+		function generateNumber() {
+			return parseInt(Math.random() * (100 - (-100)) + (-100));
+		}
+
+		let a = generateNumber();
+		let b = generateNumber();
+
+		console.log(a);
+		console.log(b);
+
+		if (a >= 0 && b >= 0) {
+			console.log('оба числа положительные, выводим их разность: ' + (a - b));
+		} else if (a < 0 && b < 0) {
+			console.log('оба числа отрицательные, выводим их произведение: ' + (a * b));
+		} else {
+			console.log('числа разных знаков, выводим их сумму: ' + (a + b));
+		}
+
+	</script>
+</body>
+
+</html>

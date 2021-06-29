@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task1</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			background: linear-gradient(135deg, rgba(110, 108, 108, 1) 0%, rgba(64, 64, 65, 1) 50%);
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<script>
+		'use strict';
+
+		function transformation(answer) {
+
+			let obj = {
+				units: '',
+				tens: '',
+				hundereds: '',
+			};
+
+			if (answer < 0 || answer > 999 || isNaN(answer) || !Number.isInteger(answer)) {
+				console.log('Вы ввели число не из диапозона');
+				return obj;
+			}
+
+			obj.hundereds = Math.floor(answer / 100);
+			obj.tens = Math.floor(answer / 10) - obj.hundereds * 10;
+			obj.units = answer - (obj.hundereds * 100) - (obj.tens * 10);
+
+			return obj;
+		}
+
+		let answer = Number(prompt('Введите целое число от 0 до 999'));
+
+		console.log(answer);
+		console.log(transformation(answer));
+
+
+	</script>
+</body>
+
+</html>

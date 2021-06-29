@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task1.1</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			background: linear-gradient(135deg, rgba(110, 108, 108, 1) 0%, rgba(64, 64, 65, 1) 50%);
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<script>
+		'use strict';
+
+
+		function Product(name, price) {
+			this.name = name;
+			this.price = price;
+		}
+
+		Product.prototype.make25PercentDiscount = function () {
+			this.price = this.price - this.price * 0.25;
+		};
+
+		const product1 = new Product('name1', 100);
+		product1.make25PercentDiscount();
+		console.log(product1);
+
+
+
+		class ProductEs6 {
+			constructor(name, price) {
+				this.name = name;
+				this.price = price;
+			}
+
+			make25PercentDiscountEs6() {
+				this.price = this.price - this.price * 0.25;
+			}
+		}
+
+		const product2 = new ProductEs6('name2', 200);
+		product2.make25PercentDiscountEs6();
+		console.log(product2);
+
+
+	</script>
+</body>
+
+</html>

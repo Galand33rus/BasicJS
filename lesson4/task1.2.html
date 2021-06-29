@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task1.2</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100vh;
+			background: linear-gradient(135deg, rgba(110, 108, 108, 1) 0%, rgba(64, 64, 65, 1) 50%);
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<script>
+		'use strict';
+
+
+		//ES5
+
+		function Post(author, text, date) {
+			this.author = author;
+			this.text = text;
+			this.date = date;
+		}
+
+		Post.prototype.edit = function (text) {
+			this.text = text;
+		};
+
+		const post1 = new Post('name1', 'Lorem, ipsum dolor.', new Date());
+		console.log(post1);
+		post1.edit('sit amet consectetur');
+		console.log(post1);
+
+
+		function AttachedPost(author, text, date) {
+			Post.call(this, author, text, date);
+			this.highlighted = false;
+		}
+
+		AttachedPost.prototype = Object.create(Post.prototype);
+		AttachedPost.prototype.constructor = AttachedPost;
+
+		AttachedPost.prototype.makeTextHighlighted = function () {
+			this.highlighted = true;
+		};
+
+		const post2 = new AttachedPost('name2', 'Lorem ipsum dolor sit.', new Date());
+		console.log(post2);
+		post2.edit('amet consectetur adipisicing elit.');
+		post2.makeTextHighlighted();
+		console.log(post2);
+
+
+
+		//ES6
+
+		class PostEs6 {
+			constructor(author, text, date) {
+				this.author = author;
+				this.text = text;
+				this.date = date;
+			}
+
+			editEs6(text) {
+				this.text = text;
+			}
+		}
+
+		const post3 = new PostEs6('name3', 'ES6 Lorem, ipsum dolor.', new Date());
+		console.log(post3);
+		post3.editEs6('ES6 sit amet consectetur');
+		console.log(post3);
+
+
+
+		class AttachedPostEs6 extends PostEs6 {
+			constructor(author, text, date) {
+				super(author, text, date);
+				this.highlighted = false;
+			}
+
+			makeTextHighlightedEs6() {
+				this.highlighted = true;
+			}
+		}
+
+		const post4 = new AttachedPostEs6('name4', 'ES6 Lorem ipsum dolor sit.', new Date());
+		console.log(post4);
+		post4.editEs6('ES6 amet consectetur adipisicing elit.');
+		post4.makeTextHighlightedEs6();
+		console.log(post4);
+
+	</script>
+</body>
+
+</html>
